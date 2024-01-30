@@ -17,8 +17,8 @@ class MessagesListCreateView(generics.ListCreateAPIView):
 
         # queryset = Messages.objects.filter(Q(receiver=user) | Q(sender=user))
         queryset = Messages.objects.filter(receiver=user)
-        if is_read and is_read.lower() == 'true':
-            queryset = queryset.filter(is_read=True)
+        if is_read and is_read.lower() == 'false':
+            queryset = queryset.filter(is_read=False)
 
         return queryset
 
